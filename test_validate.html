@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="form-group">
+    <div class="col-sm-12" :class="{ 'has-error': errors.has('username') }">
+        <input type="text" class="form-control" v-validate="'required'" data-vv-as="用户名"   name="username"  placeholder="请输入用户名" v-model="username">
+        <span v-show="errors.has('username')" class="help-block" v-cloak  >{{ errors.first('username') }}</span>
+    </div>
+</div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vee-validate@latest/dist/vee-validate.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vee-validate@latest/dist/locale/zh_CN.js"></script>
+<script>
+    Vue.use(VeeValidate);
+    VeeValidate.Validator.localize('zh_CN');
+</script>
+</html>
